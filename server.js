@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 //initalize express
 const app = express();
 //set port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 //serve static files
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
@@ -25,7 +25,9 @@ resave:false }));
 app.use(passport.initialize());
 app.use(passport.session());
 //linking routes
-require('./routes')
+const passportRoute = require("./routes/auth")(passport);
+require("./passport")(passport);
+app.use('/auth', passportRoute);
 //serving static files
 if(process.env.NODE_ENV==="production"){
     app.use(express.static("client/build"))
