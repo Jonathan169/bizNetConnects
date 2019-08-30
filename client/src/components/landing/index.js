@@ -4,9 +4,8 @@ class landingPage extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className='landing-bg'>
                 <NavBar />
-                
                 
             </div>
         )

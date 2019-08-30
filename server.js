@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 //initalize express
 const app = express();
 //set port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 //serve static files
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))

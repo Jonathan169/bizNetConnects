@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './assets/App.scss';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import LandingPage from './components/landing';
 import Projects from './components/projects';

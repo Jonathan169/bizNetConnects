@@ -15,7 +15,6 @@ module.exports = function (passport){
             else{
                 console.log(data);
                 res.send('succesfully created user');
-
             }
         })
     });
