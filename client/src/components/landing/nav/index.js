@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Modal from './Modal';
+// import Modal from './Modal';
 
 class navBar extends React.Component{
   state={
@@ -15,9 +15,9 @@ class navBar extends React.Component{
   signUpSend=(event)=>{
       event.preventDefault();
       console.log(event.target)
-      axios.post('/auth/signup',this.state).then(function(res){
+      axios.post('/saveinfo',this.state).then(function(res){
         console.log(res)
-        window.location.assign("/home")
+        window.location.assign("/messages")
       })
   }
     render(){
@@ -29,7 +29,7 @@ class navBar extends React.Component{
                     <form>
                       <div class="form-group">
                         <label className='text-muted'for="exampleInputEmail1">Company Name</label>
-                        <input type="company" name='companyName' onChange={this.handleChange} class="form-control" id="companyName" aria-describedby="emailHelp" placeholder="Enter email" />
+                        <input type="company" name='companyName' onChange={this.handleChange} class="form-control" id="companyName" aria-describedby="emailHelp" placeholder="Company Name" />
                       </div>
                       <div class="form-group">
                         <label className='text-muted' for="exampleInputEmail1">Email address</label>
@@ -37,17 +37,8 @@ class navBar extends React.Component{
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group">
-                        <label className='text-muted' for="exampleInputPassword1">Password</label>
-                        <input type="password" name='password' onChange={this.handleChange} class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                      </div>
-                      <div class="form-group">
-                        <label className='text-muted' for="exampleInputEmail1">Confrim Password</label>
-                        <input type="password" name='confirmPassword' onChange={this.handleChange} class="form-control" id="companyPassword" aria-describedby="emailHelp" placeholder="Enter email" />
-                        <small id="emailHelp" class="form-text text-muted">Keep this safe till we launch</small>
-                      </div>
-                      <div class="form-group form-check">
-                        <input type="checkbox" onChange={this.handleChange} class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label text-muted" for="exampleCheck1">Check me out</label>
+                        <label className='text-muted' for="exampleInputPassword1">Industry</label>
+                        <input type="text" name='industry' onChange={this.handleChange} class="form-control" id="exampleInputPassword1" placeholder="Industry" />
                       </div>
                       <button type="submit" onClick={this.signUpSend} name={this.state.email}  data-company={this.state.companyName} data-pass={this.state.password} class="btn btn-primary">Submit</button>
                     </form>
